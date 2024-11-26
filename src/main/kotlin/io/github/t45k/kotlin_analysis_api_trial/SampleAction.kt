@@ -19,8 +19,8 @@ class SampleAction : AnAction() {
         val ktFile = PsiManager.getInstance(project).findFile(currentOpeningFile) as KtFile
         ApplicationManager.getApplication().executeOnPooledThread {
             ApplicationManager.getApplication().runReadAction {
-                analyze(ktFile) {
-                    val animal = ktFile.children[4].children[1].children[1].children[1].children[0].children[0].children[0] as KtExpression
+                val animal = ktFile.children[4].children[1].children[1].children[1].children[0].children[0].children[0] as KtExpression
+                analyze(animal) {
                     val animalTypeGottenByAnalysisApi = animal.expressionType
                     Notifications.Bus.notify(
                         Notification(
