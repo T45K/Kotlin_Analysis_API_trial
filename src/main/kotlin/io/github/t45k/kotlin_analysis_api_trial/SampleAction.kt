@@ -21,13 +21,14 @@ class SampleAction : AnAction() {
             ApplicationManager.getApplication().runReadAction {
                 analyze(ktFile) {
                     val animal = ktFile.children[4].children[1].children[1].children[1].children[0].children[0].children[0] as KtExpression
+                    val animalTypeGottenByAnalysisApi = animal.expressionType
                     Notifications.Bus.notify(
                         Notification(
                             "Kotlin Analysis API sample",
-                            "Type of animal is ${animal.expressionType}",
-                            NotificationType.INFORMATION
+                            "Type of animal is $animalTypeGottenByAnalysisApi",
+                            NotificationType.INFORMATION,
                         ),
-                        project
+                        project,
                     )
                 }
             }
