@@ -45,8 +45,4 @@ tasks {
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
-
-    runIde {
-        jvmArgs = listOf("-Didea.kotlin.plugin.use.k2=true")
-    }
 }
